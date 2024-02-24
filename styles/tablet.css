@@ -1,0 +1,63 @@
+html {
+  font-size: 2em;
+}
+
+.toggle-slider input[type=radio] {
+  transform: scale(2.5);
+}
+.toggle-slider button {
+  top: 1.2em;
+}
+.toggle-slider #position1:checked ~ button {
+  left: 1.2em;
+}
+.toggle-slider #position2:checked ~ button {
+  left: 4.1em;
+}
+.toggle-slider #position3:checked ~ button {
+  left: 7.2em;
+}
+
+.slider-button {
+  transform: scale(2);
+}
+
+#position1, #position2, #position3 {
+  top: 1.2em;
+}
+
+#position1 {
+  left: 1.4em;
+}
+
+#position2 {
+  left: 4.1em;
+}
+
+#position3 {
+  left: 6.8em;
+}
+
+.button {
+  box-shadow: inset 0px -13px 0px -5px var(--default-key-shadow);
+  border-radius: 1em;
+}
+.button span {
+  font-size: 4em;
+}
+
+.btnEqual {
+  box-shadow: inset 0px -13px 0px -5px var(--equal-key-shadow);
+}
+
+.btnRESET, .btnDEL {
+  box-shadow: inset 0px -13px 0px -5px var(--dr-key-shadow);
+}
+
+#screen #operations .current-operation {
+  font-size: 3em;
+}
+
+.btnRESET span, .btnDEL span, .btnEqual span {
+  font-size: 3.2em;
+}/*# sourceMappingURL=tablet.css.map */

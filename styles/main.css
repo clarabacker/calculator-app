@@ -1,0 +1,466 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap");
+:root {
+  --main-bg: hsl(222, 26%, 31%);
+  --toggle-bg: hsl(223, 31%, 20%);
+  --keypad-bg: hsl(223, 31%, 20%);
+  --screen-bg: hsl(224, 36%, 15%);
+  --text-color: hsl(0, 0%, 100%);
+  --dr-key-bg: hsl(225, 21%, 49%);
+  --dr-key-bg-active: hsl(225, 51%, 76%);
+  --dr-key-shadow: hsl(224, 28%, 35%);
+  --dr-key-color: hsl(0, 0%, 100%);
+  --equal-key-bg: hsl(6, 63%, 50%);
+  --equal-key-bg-active: hsl(6, 93%, 67%);
+  --equal-key-shadow: hsl(6, 70%, 34%);
+  --equal-key-color: hsl(0, 0%, 100%);
+  --slider-button-bg: hsl(6, 63%, 50%);
+  --default-key-bg: hsl(30, 25%, 89%);
+  --default-key-bg-active: hsl(0, 0%, 100%);
+  --default-key-shadow: hsl(28, 16%, 65%);
+  --default-key-color: hsl(221, 14%, 31%);
+}
+
+[data-theme="2"] {
+  --main-bg: hsl(0, 0%, 90%);
+  --toggle-bg: hsl(0, 5%, 81%);
+  --keypad-bg: hsl(0, 5%, 81%);
+  --screen-bg: hsl(0, 0%, 93%);
+  --text-color: hsl(60, 10%, 19%);
+  --dr-key-bg: hsl(185, 42%, 37%);
+  --dr-key-bg-active: hsl(185, 40%, 56%);
+  --dr-key-shadow: hsl(185, 58%, 25%);
+  --dr-key-color: hsl(0, 0%, 100%);
+  --equal-key-bg: hsl(25, 98%, 40%);
+  --equal-key-bg-active: hsl(25, 100%, 61%);
+  --equal-key-shadow: hsl(25, 99%, 27%);
+  --equal-key-color: hsl(0, 0%, 100%);
+  --slider-button-bg: hsl(25, 98%, 40%);
+  --default-key-bg: hsl(45, 7%, 89%);
+  --default-key-bg-active: hsl(0, 0%, 100%);
+  --default-key-shadow: hsl(35, 11%, 61%);
+  --default-key-color: hsl(60, 10%, 19%);
+}
+
+[data-theme="3"] {
+  --main-bg: hsl(268, 75%, 9%);
+  --toggle-bg: hsl(268, 71%, 12%);
+  --keypad-bg: hsl(268, 71%, 12%);
+  --screen-bg: hsl(268, 71%, 12%);
+  --text-color: hsl(52, 100%, 62%);
+  --dr-key-bg: hsl(281, 89%, 26%);
+  --dr-key-bg-active: hsl(281, 59%, 52%);
+  --dr-key-shadow: hsl(285, 91%, 52%);
+  --dr-key-color: hsl(0, 0%, 100%);
+  --equal-key-bg: hsl(176, 100%, 44%);
+  --equal-key-bg-active: hsl(176, 100%, 79%);
+  --equal-key-shadow: hsl(177, 92%, 70%);
+  --equal-key-color: hsl(198, 20%, 13%);
+  --slider-button-bg: hsl(176, 100%, 44%);
+  --default-key-bg: hsl(268, 47%, 21%);
+  --default-key-bg-active: hsl(268, 54%, 44%);
+  --default-key-shadow: hsl(290, 70%, 36%);
+  --default-key-color: hsl(52, 100%, 62%);
+}
+
+* {
+  font-family: "League Spartan", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body, main {
+  min-height: 100%;
+}
+
+div {
+  display: block;
+}
+
+.attribution {
+  font-size: 0.8em;
+  text-align: center;
+  padding: 0.5em 0;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+main {
+  background-color: var(--main-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2em 0;
+}
+
+#calculator {
+  height: 80%;
+  width: 85%;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  color: var(--text-color);
+}
+header h1 {
+  font-size: 2.1em;
+  padding-bottom: 0.2em;
+}
+
+.toggle-label {
+  letter-spacing: 2px;
+  padding-bottom: 0.4em;
+}
+
+.toggle-label, .switch-themes div {
+  font-size: 0.9rem;
+  line-height: 0.9;
+}
+
+.toggle-container {
+  display: flex;
+  gap: 2em;
+  align-items: flex-end;
+}
+
+.switch-themes {
+  display: flex;
+  justify-content: space-around;
+}
+
+.toggle-switch {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.toggle-slider {
+  width: 4em;
+  height: 1.5em;
+  background-color: var(--toggle-bg);
+  border-radius: 1.5em;
+  position: relative;
+  cursor: pointer;
+}
+.toggle-slider input {
+  cursor: pointer;
+}
+.toggle-slider button {
+  background: var(--slider-button-bg);
+  width: 1.1em;
+  height: 1.1em;
+  border: none;
+  border-radius: 50%;
+  pointer-events: none;
+  position: absolute;
+  top: 0.35em;
+  left: 0.3em;
+  transition: all 0.3s ease-in-out;
+}
+.toggle-slider #position1:checked ~ button {
+  left: 0.4em;
+}
+.toggle-slider #position2:checked ~ button {
+  left: 1.9em;
+}
+.toggle-slider #position3:checked ~ button {
+  left: 3.3em;
+}
+.toggle-slider input[type=radio] {
+  transform: scale(1.2);
+}
+
+#position1, #position2, #position3 {
+  position: absolute;
+  top: 0.4em;
+  opacity: 0;
+}
+
+#position1 {
+  left: 0.6em;
+}
+
+#position2 {
+  left: 2em;
+}
+
+#position3 {
+  left: 3.3em;
+}
+
+#screen {
+  background-color: var(--screen-bg);
+  width: 100%;
+  border-radius: 0.6em;
+  padding: 1em;
+  min-height: 6em;
+}
+#screen #operations {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  min-height: 4.5em;
+  padding: 0 0.7em;
+}
+#screen #operations .current-operation, #screen #operations .previous-operation {
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+#screen #operations .current-operation {
+  font-size: 2.8em;
+  color: var(--text-color);
+}
+#screen #operations .previous-operation {
+  font-size: 1.2em;
+  color: var(--default-key-shadow);
+  padding-bottom: 5px;
+}
+
+#calculator {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+
+.btn7 {
+  grid-area: btn7;
+}
+
+.btn8 {
+  grid-area: btn8;
+}
+
+.btn9 {
+  grid-area: btn9;
+}
+
+.btnDEL {
+  grid-area: btnDEL;
+}
+
+.btn6 {
+  grid-area: btn6;
+}
+
+.btn5 {
+  grid-area: btn5;
+}
+
+.btn4 {
+  grid-area: btn4;
+}
+
+.btnPlus {
+  grid-area: btnPlus;
+}
+
+.btn3 {
+  grid-area: btn3;
+}
+
+.btn2 {
+  grid-area: btn2;
+}
+
+.btn1 {
+  grid-area: btn1;
+}
+
+.btnMinus {
+  grid-area: btnMinus;
+}
+
+.btnDot {
+  grid-area: btnDot;
+}
+
+.btn0 {
+  grid-area: btn0;
+}
+
+.btnDivide {
+  grid-area: btnDivide;
+}
+
+.btnMultiply {
+  grid-area: btnMultiply;
+}
+
+.btnRESET {
+  grid-area: btnRESET;
+}
+
+.btnEqual {
+  grid-area: btnEqual;
+}
+
+#keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 3.8em);
+  grid-template-areas: "btn7 btn8 btn9 btnDEL" "btn4 btn5 btn6 btnPlus" "btn1 btn2 btn3 btnMinus" "btnDot btn0 btnDivide btnMultiply" "btnRESET btnRESET btnEqual btnEqual";
+  background-color: var(--keypad-bg);
+  gap: 0.8em;
+  padding: 1.4em;
+  border-radius: 0.7em;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 0.35em;
+  outline: none;
+  background-color: var(--default-key-bg);
+  box-shadow: inset 0px -9px 0px -5px var(--default-key-shadow);
+  transition: background-color 0.1s ease;
+}
+.button:active {
+  transform: translateY(2px);
+  background-color: var(--default-key-bg-active);
+}
+.button:hover {
+  background-color: var(--default-key-bg-active);
+  cursor: pointer;
+}
+
+.button span {
+  font-size: 2.2em;
+  color: var(--default-key-color);
+}
+
+.btnRESET, .btnDEL {
+  background-color: var(--dr-key-bg);
+  box-shadow: inset 0px -9px 0px -5px var(--dr-key-shadow);
+}
+.btnRESET:active, .btnRESET:hover, .btnDEL:active, .btnDEL:hover {
+  background-color: var(--dr-key-bg-active);
+}
+.btnRESET span, .btnDEL span {
+  font-size: 1.4em;
+  color: var(--dr-key-color);
+}
+
+.btnEqual {
+  background-color: var(--equal-key-bg);
+  box-shadow: inset 0px -9px 0px -5px var(--equal-key-shadow);
+}
+.btnEqual:active, .btnEqual:hover {
+  background-color: var(--equal-key-bg-active);
+}
+.btnEqual span {
+  font-size: 1.4em;
+  color: var(--equal-key-color);
+}
+
+@media screen and (max-width: 280px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6em;
+  }
+  #keypad {
+    grid-template-rows: repeat(5, 3em);
+    gap: 0.8em;
+    padding: 1em;
+    border-radius: 0.7em;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+  html {
+    font-size: 2em;
+  }
+  .toggle-slider input[type=radio] {
+    transform: scale(2.5);
+  }
+  .toggle-slider button {
+    top: 1.2em;
+  }
+  .toggle-slider #position1:checked ~ button {
+    left: 1.2em;
+  }
+  .toggle-slider #position2:checked ~ button {
+    left: 4.1em;
+  }
+  .toggle-slider #position3:checked ~ button {
+    left: 7.2em;
+  }
+  .slider-button {
+    transform: scale(2);
+  }
+  #position1, #position2, #position3 {
+    top: 1.2em;
+  }
+  #position1 {
+    left: 1.4em;
+  }
+  #position2 {
+    left: 4.1em;
+  }
+  #position3 {
+    left: 6.8em;
+  }
+  .button {
+    box-shadow: inset 0px -13px 0px -5px var(--default-key-shadow);
+    border-radius: 1em;
+  }
+  .button span {
+    font-size: 4em;
+  }
+  .btnEqual {
+    box-shadow: inset 0px -13px 0px -5px var(--equal-key-shadow);
+  }
+  .btnRESET, .btnDEL {
+    box-shadow: inset 0px -13px 0px -5px var(--dr-key-shadow);
+  }
+  #screen #operations .current-operation {
+    font-size: 3em;
+  }
+  .btnRESET span, .btnDEL span, .btnEqual span {
+    font-size: 3.2em;
+  }
+}
+@media screen and (min-width: 1025px) {
+  #calculator {
+    width: 40%;
+  }
+  #keypad {
+    gap: 1.5em;
+    padding: 1.8em;
+  }
+  #keypad .button {
+    border-radius: 0.6em;
+  }
+  .button span {
+    font-size: 2.6em;
+  }
+  #screen {
+    padding: 1em;
+  }
+  #screen #operations {
+    min-height: 5.6em;
+    padding: 0 1em;
+  }
+  #screen #operations .current-operation {
+    font-size: 3.5em;
+  }
+  #screen #operations .previous-operation {
+    font-size: 1.6em;
+  }
+  .btnRESET span, .btnDEL span, .btnEqual span {
+    font-size: 1.8em;
+  }
+}/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="styles/main.css">
+  
+  <title>Frontend Mentor | Calculator app</title>
+</head>
+
+<body>
+  <main>
+    <div id="calculator">
+      <header>
+        <h1 style="display: inline-block;">calc</h1>
+  
+        <div class="toggle-container">
+          <span class="toggle-label">THEME</span>
+  
+            <div class="toggle-switch" id="toggle">
+              <div class="switch-themes">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+              </div>
+  
+              
+              <div class="toggle-slider">
+                <input type="radio" name="toggle" id="position1" value="1" checked onChange="themeChange()">
+                <label for="position1"></label>
+                <input type="radio" name="toggle" id="position2" value="2" onChange="themeChange()">
+                <label for="position2"></label>
+                <input type="radio" name="toggle" id="position3" value="3" onChange="themeChange()">
+                <button class="slider-button"></button>
+                <label for="position3"></label>
+              </div>              
+            </div>
+        </div>
+      </header>
+
+      <div id="screen">
+        <div id="operations">
+          <div class="previous-operation"></div>
+          <div class="current-operation">0</div>
+        </div>
+      </div>
+  
+      <div id="keypad">
+        <button class="button btn7" data-number="7"><span>7</span></button>
+        <button class="button btn8" data-number="8"><span>8</span></button>
+        <button class="button btn9" data-number="9"><span>9</span></button>
+        <button class="button btnDEL" data-delete="DEL"><span>DEL</span></button>
+
+        <button class="button btn4" data-number="4"><span>4</span></button>
+        <button class="button btn5" data-number="5"><span>5</span></button>
+        <button class="button btn6" data-number="6"> <span>6</span></button>
+        <button class="button btnPlus" data-operator="+"><span>+</span></button>
+        
+        <button class="button btn1" data-number="1"><span>1</span></button>
+        <button class="button btn2" data-number="2"><span>2</span></button>
+        <button class="button btn3" data-number="3"><span>3</span></button>
+        <button class="button btnMinus" data-operator="-"><span>-</span></button>
+        
+        <button class="button btnDot" data-number="."><span>.</span></button>
+        <button class="button btn0" data-number="0"><span>0</span></button>
+        <button class="button btnDivide" data-operator="/"><span>/</span></button>
+        <button class="button btnMultiply" data-operator="*"><span>x</span></button>
+        
+        <button class="button btnRESET" data-reset="RESET"><span>RESET</span></button>
+        <button class="button btnEqual" data-equal="="><span>=</span></button>
+      </div>
+    </div>
+  </main>
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://github.com/clarabacker" target="_blank">Clara Backer</a>.
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>

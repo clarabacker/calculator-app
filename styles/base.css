@@ -1,0 +1,90 @@
+:root {
+  --main-bg: hsl(222, 26%, 31%);
+  --toggle-bg: hsl(223, 31%, 20%);
+  --keypad-bg: hsl(223, 31%, 20%);
+  --screen-bg: hsl(224, 36%, 15%);
+  --text-color: hsl(0, 0%, 100%);
+  --dr-key-bg: hsl(225, 21%, 49%);
+  --dr-key-bg-active: hsl(225, 51%, 76%);
+  --dr-key-shadow: hsl(224, 28%, 35%);
+  --dr-key-color: hsl(0, 0%, 100%);
+  --equal-key-bg: hsl(6, 63%, 50%);
+  --equal-key-bg-active: hsl(6, 93%, 67%);
+  --equal-key-shadow: hsl(6, 70%, 34%);
+  --equal-key-color: hsl(0, 0%, 100%);
+  --slider-button-bg: hsl(6, 63%, 50%);
+  --default-key-bg: hsl(30, 25%, 89%);
+  --default-key-bg-active: hsl(0, 0%, 100%);
+  --default-key-shadow: hsl(28, 16%, 65%);
+  --default-key-color: hsl(221, 14%, 31%);
+}
+
+[data-theme="2"] {
+  --main-bg: hsl(0, 0%, 90%);
+  --toggle-bg: hsl(0, 5%, 81%);
+  --keypad-bg: hsl(0, 5%, 81%);
+  --screen-bg: hsl(0, 0%, 93%);
+  --text-color: hsl(60, 10%, 19%);
+  --dr-key-bg: hsl(185, 42%, 37%);
+  --dr-key-bg-active: hsl(185, 40%, 56%);
+  --dr-key-shadow: hsl(185, 58%, 25%);
+  --dr-key-color: hsl(0, 0%, 100%);
+  --equal-key-bg: hsl(25, 98%, 40%);
+  --equal-key-bg-active: hsl(25, 100%, 61%);
+  --equal-key-shadow: hsl(25, 99%, 27%);
+  --equal-key-color: hsl(0, 0%, 100%);
+  --slider-button-bg: hsl(25, 98%, 40%);
+  --default-key-bg: hsl(45, 7%, 89%);
+  --default-key-bg-active: hsl(0, 0%, 100%);
+  --default-key-shadow: hsl(35, 11%, 61%);
+  --default-key-color: hsl(60, 10%, 19%);
+}
+
+[data-theme="3"] {
+  --main-bg: hsl(268, 75%, 9%);
+  --toggle-bg: hsl(268, 71%, 12%);
+  --keypad-bg: hsl(268, 71%, 12%);
+  --screen-bg: hsl(268, 71%, 12%);
+  --text-color: hsl(52, 100%, 62%);
+  --dr-key-bg: hsl(281, 89%, 26%);
+  --dr-key-bg-active: hsl(281, 59%, 52%);
+  --dr-key-shadow: hsl(285, 91%, 52%);
+  --dr-key-color: hsl(0, 0%, 100%);
+  --equal-key-bg: hsl(176, 100%, 44%);
+  --equal-key-bg-active: hsl(176, 100%, 79%);
+  --equal-key-shadow: hsl(177, 92%, 70%);
+  --equal-key-color: hsl(198, 20%, 13%);
+  --slider-button-bg: hsl(176, 100%, 44%);
+  --default-key-bg: hsl(268, 47%, 21%);
+  --default-key-bg-active: hsl(268, 54%, 44%);
+  --default-key-shadow: hsl(290, 70%, 36%);
+  --default-key-color: hsl(52, 100%, 62%);
+}
+
+* {
+  font-family: "League Spartan", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body, main {
+  min-height: 100%;
+}
+
+div {
+  display: block;
+}
+
+.attribution {
+  font-size: 0.8em;
+  text-align: center;
+  padding: 0.5em 0;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}/*# sourceMappingURL=base.css.map */
