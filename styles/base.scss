@@ -95,11 +95,33 @@ div {
 }
 
 .attribution { 
-    font-size: 0.8em;
+    font-size: 0.9em;
     text-align: center;
     padding: 0.5em 0;
 
     a { 
         color: hsl(228, 45%, 44%); 
+    }
+}
+
+
+// Mixins 
+@mixin size($width, $height: null, $min-height: null) {
+    width: $width;
+    @if $height != null {
+      height: $height;
+    }
+    @if $min-height != null {
+        min-height: $min-height;
+    }
+}
+@mixin flex-properties($display: flex, $direction: null, $justify: center, $align: center, $gap: null) {
+    display: $display;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+
+    @if $gap != null {
+        gap: $gap;
     }
 }

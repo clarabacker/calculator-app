@@ -82,7 +82,7 @@ div {
 }
 
 .attribution {
-  font-size: 0.8em;
+  font-size: 0.9em;
   text-align: center;
   padding: 0.5em 0;
 }
@@ -94,14 +94,14 @@ main {
   background-color: var(--main-bg);
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   padding: 2em 0;
 }
 
 #calculator {
-  height: 80%;
   width: 85%;
+  height: 80%;
 }
 
 header {
@@ -128,8 +128,8 @@ header h1 {
 
 .toggle-container {
   display: flex;
-  gap: 2em;
   align-items: flex-end;
+  gap: 2em;
 }
 
 .switch-themes {
@@ -200,9 +200,9 @@ header h1 {
 #screen {
   background-color: var(--screen-bg);
   width: 100%;
+  min-height: 6em;
   border-radius: 0.6em;
   padding: 1em;
-  min-height: 6em;
 }
 #screen #operations {
   display: flex;
@@ -318,9 +318,6 @@ header h1 {
 }
 
 .button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border: none;
   border-radius: 0.35em;
   outline: none;
@@ -368,7 +365,8 @@ header h1 {
 
 @media screen and (max-width: 280px) {
   header {
-    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 0.6em;
   }
