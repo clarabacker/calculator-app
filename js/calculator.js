@@ -4,6 +4,26 @@ let previousOperation = document.querySelector(".previous-operation")
 let current = "0"
 let previous = ""
 
+// Function to format a number by adding commas for thousands separator and preserving decimal formatting
+function formatNumberWithCommas(number) {
+    // Convert the number to string and split it into integer and decimal parts
+    let parts = number.toString().split(".")
+    let integerPart = parts[0]
+    let decimalPart
+
+    // Check if the number has decimal part
+    if (parts.length > 1) {
+        decimalPart = "." + parts[1]
+    } else {
+        decimalPart = ""
+    }
+
+    // Insert commas as thousands separator in the integer part
+    integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+
+    return integerPart + decimalPart
+}
+
 // Loop through each button element to add a click event listener and determine the action to be taken based on its data attributes.
 buttons.forEach(button => {
     button.addEventListener("click", function() {
@@ -33,7 +53,7 @@ buttons.forEach(button => {
 
 // Function to update the display screen with the current and previous operations
 function updateScreen() {
-    currentOperation.textContent = current
+    currentOperation.textContent = formatNumberWithCommas(current)
     previousOperation.textContent = previous
 }
 
@@ -78,11 +98,11 @@ function handleOperatorClick(operator) {
         }
         else {
           calculate() // Calculate the result of the previous operation
-          previous = current + " " + operator
+          previous = formatNumberWithCommas(current) + " " + operator
         }
       }
       else {
-        previous = current + " " + operator
+        previous = formatNumberWithCommas(current) + " " + operator
       }
 
       current = "" // Clear the current operation for entering the next number
@@ -102,9 +122,9 @@ function calculate() {
       return
     }
 
-    const operand1 = parseFloat(tokens[0])
+    const operand1 = Big(tokens[0].replace(/,/g, "")) // Convert the first operand to a Big number, removing commas if present
     const operator = tokens[1]
-    const operand2 = parseFloat(currentOperation.textContent) // Get the second operand from the current operation
+    const operand2 = Big(currentOperation.textContent.replace(/,/g, "")) // Extract the second operand from the current operation, converting it to a Big number and removing commas if present
 
     if (isNaN(operand1) || isNaN(operand2)) {
       current = "ERROR"
@@ -115,23 +135,23 @@ function calculate() {
 
     switch (operator) {
       case "+":
-        current = (operand1 + operand2).toString()
+        current = operand1.plus(operand2).toString()
         break
       case "-":
-        current = (operand1 - operand2).toString()
+        current = operand1.minus(operand2).toString()
         break
       case "*":
-        current = (operand1 * operand2).toString()
+        current = operand1.times(operand2).toString()
         break
       case "/":
         // Check for division by zero
-        if (operand2 === 0) {
+        if (operand2.eq(0)) {
           current = "ERROR"
           previous = ""
           updateScreen()
           return
         }
-        current = (operand1 / operand2).toString()
+        current = operand1.div(operand2).toString()
         break
       default:
         current = "ERROR"
